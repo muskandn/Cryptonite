@@ -1,7 +1,7 @@
 
 
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -11,6 +11,7 @@ const navLinks = [
 ];
 
 const CoinList = () => {
+    const pathname = usePathname();
   return (
     <div className="flex">
       <div className="flex-1 container mx-auto p-4">
