@@ -224,7 +224,7 @@ const CoinGraph = () => {
 
   return (
     <div className="graph">
-      <div className="bg-white border border-gray-200 rounded-lg p-4">
+      <div className="border border-gray-200 rounded-lg p-4">
         {coinData ? (
           <Line data={data} />
         ) : (

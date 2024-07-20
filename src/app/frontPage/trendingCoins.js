@@ -19,10 +19,15 @@ const TrendingMarket = () => {
       window.location.href = `/coin_each/${coin.id}`;
     };
 
-
+    const formatMarketCap = (marketCap) => {
+      if (marketCap >= 1e9) {
+        return (marketCap / 1e9).toFixed(2) + "B";
+      }
+      return marketCap;
+    };
 
   return (
-    <div className="p-6 bg-white border rounded-lg">
+    <div className="p-6 border rounded-lg">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Trending Market</h2>
         <Link href="/coinList/allcoins" className="text-blue-500">
@@ -37,7 +42,7 @@ const TrendingMarket = () => {
         {showCoinList && <Coins />} */}
       </div>
       <div className="overflow-x-auto">
-        <div className="overflow-x-auto bg-white shadow-md rounded p-4 ">
+        <div className="overflow-x-auto shadow-md rounded p-4 ">
           <table className="min-w-full leading-normal">
             <thead>
               <tr>
@@ -74,7 +79,9 @@ const TrendingMarket = () => {
                     />
                     {coin.name}
                   </td>
-                  <td className="py-2 px-4">{coin.market_cap}</td>
+                  <td className="py-2 px-4">
+                    {formatMarketCap(coin.market_cap)}
+                  </td>
                   <td className="py-2 px-4 text-green-500">
                     {coin.market_cap_change_percentage_24h}%
                   </td>

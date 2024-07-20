@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import useCryptoStore from "../../store/store";
 import DataFetching from "../../src/app/coinList/allcoins/dataFetching";
 import useRecentlyViewedStore from "../../store/recentlyViewedStore";
-
+import { useTheme } from "@/context/themeContext";
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const cryptocurrencies = useCryptoStore((state) => state.cryptocurrencies);
-
+  const theme=useTheme();
   const addtoRecentlyViewed = useRecentlyViewedStore(
     (state) => state.addtoRecentlyViewed
   );
@@ -69,7 +69,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-full max-w-lg mx-auto mt-5">
+    <div className="relative w-full max-w-lg mx-auto">
       <DataFetching />
       <input
         type="text"
@@ -82,11 +82,11 @@ const SearchBar = () => {
         onBlur={handleBlur}
       />
       {isFocused && suggestions.length > 0 && (
-        <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg mt-1 z-10">
+        <div className="absolute top-full left-0 right-0 bg-gray-400 border border-gray-300 rounded-lg shadow-lg mt-1 z-10">
           {suggestions.map((item, index) => (
             <div
               key={index}
-              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              className="px-4 py-2 hover:bg-gray-300 cursor-pointer"
               onMouseDown={() =>
                 handleSearch(typeof item === "string" ? item : item.name)
               }

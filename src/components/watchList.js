@@ -1,13 +1,33 @@
 // src/components/recentView.js
 
 "use client"
+import React from "react";
+import { useDroppable } from "@dnd-kit/core";
 import useWatchlistStore from "../../store/watchlistStore";
 
-const recentView = () => {
+const WatchList = () => {
+
+  const { isOver, setNodeRef } = useDroppable({
+    id: "watchlist",
+  });
+  const style = {
+    backgroundColor: isOver ? "lightgreen" : "",
+  };
+  const formatMarketCap = (marketCap) => {
+    if (marketCap >= 1e9) {
+      return (marketCap / 1e9).toFixed(2) + "B";
+    }
+    return marketCap;
+  };
+
   const watchlist=useWatchlistStore((state)=>state.watchlist)
   
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-4">
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="border border-gray-200 rounded-lg p-4"
+    >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Watchlist</h2>
         <a href="/coinList/watchlist" className="text-blue-500 ml-auto">
@@ -39,10 +59,11 @@ const recentView = () => {
                   {item.market_data.current_price.usd}
                 </td>
                 <td className="py-2 text-green-500 border-t">
-                  {item.market_data.market_cap_change_percentage_24h}%
+                  {item.market_data.market_cap_change_percentage_24h}
+                  %
                 </td>
                 <td className="py-2 text-right border-t">
-                  {item.market_data.market_cap.usd}
+                  {formatMarketCap(item.market_data.market_cap.usd)}
                 </td>
               </tr>
             ))}
@@ -53,4 +74,4 @@ const recentView = () => {
   );
 };
 
-export default recentView;
+export default WatchList;

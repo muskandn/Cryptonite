@@ -30,7 +30,7 @@ const useRecentlyViewedStore = create(
           const alreadyExists = state.recentlyViewed.some(
             (item) => item.id === coin.id
           );
-          const updatedRecentlyViewed = false
+          const updatedRecentlyViewed = alreadyExists
             ? state.recentlyViewed
             : [coin, ...state.recentlyViewed.slice(0, 4)]; // Limit to top 5
           return { recentlyViewed: updatedRecentlyViewed };
