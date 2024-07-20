@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import WatchList from "../../../components/watchList";
 import Recentview from "../../../components/recentView";
+import Image from "next/image";
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -84,10 +85,12 @@ const CoinList = () => {
                   >
                     <td className="py-2 px-4 flex items-center">
                       {coin.image ? (
-                        <img
+                        <Image
                           src={coin.image}
                           alt={coin.name}
                           className="w-6 h-6 mr-2"
+                          width={20}
+                          height={20}
                         />
                       ) : (
                         <div className="w-6 h-6 mr-2 bg-gray-200"></div>
@@ -105,9 +108,7 @@ const CoinList = () => {
                       {coin.low_24h || "N/A"}
                     </td>
                     <td className="py-2 px-4 text-green-500">
-                      {coin.market_cap_change_percentage_24h||
-                        "N/A"}
-                      %
+                      {coin.market_cap_change_percentage_24h || "N/A"}%
                     </td>
                     <td className="py-2 px-4">{coin.total_volume || "N/A"}</td>
                   </tr>

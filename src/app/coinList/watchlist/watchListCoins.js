@@ -9,6 +9,7 @@ import WatchList from "../../../components/watchList";
 import Recentview from "../../../components/recentView";
 import { CiSquareMinus } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Image from "next/image";
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -91,10 +92,12 @@ const CoinList = () => {
                     className="hover:bg-gray-400 cursor-pointer"
                   >
                     <td className="py-2 px-4 flex items-center">
-                      <img
+                      <Image
                         src={coin.image?.thumb ?? "/default-image.png"}
                         alt={coin.name}
                         className="w-6 h-6 mr-2"
+                        width={20}
+                        height={20}
                       />
                       {coin.name}
                     </td>
@@ -112,8 +115,9 @@ const CoinList = () => {
                       {coin.market_data?.low_24h?.usd ?? "N/A"}
                     </td>
                     <td className="py-2 px-4">
-                      {coin.market_data?.market_cap_change_percentage_24h??
-                        "N/A"}%
+                      {coin.market_data?.market_cap_change_percentage_24h ??
+                        "N/A"}
+                      %
                     </td>
                     <td className="py-2 px-4">
                       {coin.market_data?.total_volume?.usd ?? "N/A"}

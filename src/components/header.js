@@ -46,7 +46,7 @@ const Header = () => {
       <div className="flex justify-between items-center mt-5">
         <div className="flex items-center">
           <Link href={"/"}>
-            <Image src="/com.png" alt="Logo Left" width={40} height={40} />
+            <Image src="/com.png" alt="Logo Left" width={40} height={40}/>
           </Link>
         </div>
         {pathname !== "/" && <SearchBar />}

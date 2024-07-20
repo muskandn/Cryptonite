@@ -83,6 +83,7 @@
 import React, { useState, useEffect } from "react";
 import useCryptoStore from "../../store/store";
 import "../app/globals.css";
+import Image from "next/image";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -99,9 +100,7 @@ const Carousel = () => {
   return (
     <div className="flex flex-col items-center p-6 border rounded-lg shadow-md">
       <div className="text-center mb-4">
-        <h2 className="text-6xl font-bold mb-3 uppercase">
-          Cryptonite
-        </h2>
+        <h2 className="text-6xl font-bold mb-3 uppercase">Cryptonite</h2>
         <p className="text-gray-600 dark:text-gray-400">
           Get All The Info Regarding Your Favorite Crypto Currency
         </p>
@@ -116,12 +115,13 @@ const Carousel = () => {
               key={coin.id}
               className="w-1/4 flex-shrink-0 flex flex-col items-center justify-center"
             >
-              <img src={coin.image} alt={coin.name} width={70} height={80} />
-              <p className="mt-5 text-xl text-bold text-gray-900 dark:text-white">{coin.name} </p>
+              <Image src={coin.image} alt={coin.name} width={50} height={50} />
+              <p className="mt-5 text-xl text-bold text-gray-900 dark:text-white">
+                {coin.name}{" "}
+              </p>
               <p className="text-green-500">
                 {/* <span className="text-green-500"> */}
-                  {coin.market_cap_change_percentage_24h}%
-                {/* </span>{" "} */}
+                {coin.market_cap_change_percentage_24h}%{/* </span>{" "} */}
               </p>
               <p className="text-gray-600 dark:text-gray-300">
                 {coin.current_price}

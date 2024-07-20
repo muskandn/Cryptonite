@@ -3,6 +3,7 @@ import { useState,useEffect} from "react";
 import Link from "next/link";
 import useCryptoStore from "../../../store/store";
 import useRecentlyViewedStore from "../../../store/recentlyViewedStore";
+import Image from "next/image";
 const TrendingMarket = () => {
     const cryptocurrencies = useCryptoStore((state) => state.cryptocurrencies);
     const addtoRecentlyViewed = useRecentlyViewedStore(
@@ -72,10 +73,12 @@ const TrendingMarket = () => {
                   className="hover:bg-gray-100 cursor-pointer"
                 >
                   <td className="py-2 px-4 flex items-center">
-                    <img
+                    <Image
                       src={coin.image}
                       alt={coin.name}
                       className="w-6 h-6 mr-2"
+                      width={20}
+                      height={20}
                     />
                     {coin.name}
                   </td>

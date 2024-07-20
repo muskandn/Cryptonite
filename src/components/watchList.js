@@ -4,7 +4,7 @@
 import React from "react";
 import { useDroppable } from "@dnd-kit/core";
 import useWatchlistStore from "../../store/watchlistStore";
-
+import Image from "next/image"
 const WatchList = () => {
 
   const { isOver, setNodeRef } = useDroppable({
@@ -48,10 +48,12 @@ const WatchList = () => {
             {watchlist.slice(0, 5).map((item, index) => (
               <tr key={index}>
                 <td className="py-2 flex items-center border-t">
-                  <img
+                  <Image
                     src={item.image.thumb}
                     alt={index}
                     className="w-6 h-6 mr-2"
+                    width={20}
+                    height={20}
                   />
                   {item.name}
                 </td>
@@ -59,8 +61,7 @@ const WatchList = () => {
                   {item.market_data.current_price.usd}
                 </td>
                 <td className="py-2 text-green-500 border-t">
-                  {item.market_data.market_cap_change_percentage_24h}
-                  %
+                  {item.market_data.market_cap_change_percentage_24h}%
                 </td>
                 <td className="py-2 text-right border-t">
                   {formatMarketCap(item.market_data.market_cap.usd)}

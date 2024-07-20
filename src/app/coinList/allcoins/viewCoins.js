@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import { CSS } from "@dnd-kit/utilities";
 import WatchList from "../../../components/watchList";
 import Recentview from "../../../components/recentView"
+import Image from "next/image";
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -175,7 +176,13 @@ const DraggableRow = ({ coin, handleRowClick }) => {
       draggable
     >
       <td className="py-2 px-4 flex items-center">
-        <img src={coin.image} alt={coin.name} className="w-6 h-6 mr-2" />
+        <Image
+          src={coin.image}
+          alt={coin.name}
+          className="w-6 h-6 mr-2"
+          width={20}
+          height={20}
+        />
         {coin.name}
       </td>
       <td className="py-2 px-4">{formatMarketCap(coin.market_cap)}</td>

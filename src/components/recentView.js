@@ -4,7 +4,7 @@
 
 import React from "react";
 import useRecentlyViewedStore from "../../store/recentlyViewedStore";
-
+import Image from "next/image"
 const RecentView = () => {
   const recentlyViewed = useRecentlyViewedStore(
     (state) => state.recentlyViewed
@@ -40,10 +40,12 @@ const RecentView = () => {
               <tr key={index}>
                 <td className="py-2 flex items-center border-t">
                   {item.image && (
-                    <img
+                    <Image
                       src={item.image}
                       alt={index}
                       className="w-6 h-6 mr-2"
+                      width={20}
+                      height={20}
                     />
                   )}
 
@@ -51,7 +53,7 @@ const RecentView = () => {
                 </td>
                 <td className="py-2 border-t">{item.current_price || "NA"}</td>
                 <td className="py-2 text-green-500 border-t">
-                  {item.market_cap_change_percentage_24h|| "NA"}%
+                  {item.market_cap_change_percentage_24h || "NA"}%
                 </td>
                 <td className="py-2 text-right border-t">
                   {formatMarketCap(item.market_cap) || "NA"}
