@@ -56,11 +56,13 @@ const CoinList = () => {
 
   const handleRowClick = (coin) => {
     addRecentlyViewed(coin);
+    console.log("coin added recent",coin)
   };
 
   const handleDragEnd = ({ active, over }) => {
     if (over && over.id === "watchlist") {
       const coin = cryptocurrencies.find((c) => c.id === active.id);
+      console.log("added coin",coin);
       if (coin) {
         addToWatchlist(coin);
       }
@@ -165,7 +167,6 @@ const DraggableRow = ({ coin, handleRowClick }) => {
   };
 
   return (
-    
     <tr
       ref={setNodeRef}
       style={style}
@@ -175,7 +176,10 @@ const DraggableRow = ({ coin, handleRowClick }) => {
       onClick={() => handleRowClick(coin)}
     >
       <Link href={`/coin_each/${coin.id}`} passHref>
-        <td className="py-2 px-4 flex items-center">
+        <td
+          className="py-2 px-4 flex items-center"
+          onClick={() => handleRowClick(coin)}
+        >
           <div className="flex">
             <Image
               src={coin.image}
@@ -188,32 +192,41 @@ const DraggableRow = ({ coin, handleRowClick }) => {
           </div>
         </td>
       </Link>
-      <td className="py-2 px-4">
+      <td className="py-2 px-4" onClick={() => handleRowClick(coin)}>
         <Link href={`/coin_each/${coin.id}`} passHref>
           {formatMarketCap(coin.market_cap)}
         </Link>
       </td>
-      <td className="py-2 px-4 text-green-600">
+      <td
+        className="py-2 px-4 text-green-600"
+        onClick={() => handleRowClick(coin)}
+      >
         <Link href={`/coin_each/${coin.id}`} passHref>
           {coin.market_cap_change_percentage_24h.toFixed(2)}%
         </Link>
       </td>
-      <td className="py-2 px-4">
+      <td className="py-2 px-4" onClick={() => handleRowClick(coin)}>
         <Link href={`/coin_each/${coin.id}`} passHref>
           {formatTotalVolume(coin.total_volume)}
         </Link>
       </td>
-      <td className="py-2 px-4">
+      <td className="py-2 px-4" onClick={() => handleRowClick(coin)}>
         <Link href={`/coin_each/${coin.id}`} passHref>
           {coin.current_price}
         </Link>
       </td>
-      <td className="py-2 px-4 text-green-600">
+      <td
+        className="py-2 px-4 text-green-600"
+        onClick={() => handleRowClick(coin)}
+      >
         <Link href={`/coin_each/${coin.id}`} passHref>
           {coin.high_24h.toFixed(2)}
         </Link>
       </td>
-      <td className="py-2 px-4 text-red-600">
+      <td
+        className="py-2 px-4 text-red-600"
+        onClick={() => handleRowClick(coin)}
+      >
         <Link href={`/coin_each/${coin.id}`} passHref>
           {coin.low_24h.toFixed(2)}
         </Link>

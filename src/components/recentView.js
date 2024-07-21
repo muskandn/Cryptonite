@@ -36,7 +36,7 @@ const RecentView = () => {
             </tr>
           </thead>
           <tbody>
-            {recentlyViewed.slice(0, 5).map((item, index) => (
+            {recentlyViewed.slice(0,5).map((item, index) => (
               <tr key={index}>
                 <td className="py-2 flex items-center border-t">
                   {item.image && (

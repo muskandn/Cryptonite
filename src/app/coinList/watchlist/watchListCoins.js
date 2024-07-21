@@ -93,7 +93,7 @@ const CoinList = () => {
                   >
                     <td className="py-2 px-4 flex items-center">
                       <Image
-                        src={coin.image?.thumb ?? "/default-image.png"}
+                        src={coin.image?.thumb ?? coin.image}
                         alt={coin.name}
                         className="w-6 h-6 mr-2"
                         width={20}
@@ -102,25 +102,26 @@ const CoinList = () => {
                       {coin.name}
                     </td>
                     <td className="py-2 px-4">
-                      {coin.market_data?.current_price?.usd ?? "N/A"}
+                      {coin.market_data?.current_price?.usd ?? coin.current_price}
                     </td>
                     <td className="py-2 px-4">
                       {formatMarketCap(coin.market_data?.market_cap?.usd) ??
-                        "N/A"}
+                        formatMarketCap(coin.market_cap)}
                     </td>
                     <td className="py-2 px-4 text-green-600">
-                      {coin.market_data?.high_24h?.usd ?? "N/A"}
+                      {coin.market_data?.high_24h?.usd ?? coin.high_24h}
                     </td>
                     <td className="py-2 px-4 text-red-600">
-                      {coin.market_data?.low_24h?.usd ?? "N/A"}
+                      {coin.market_data?.low_24h?.usd ?? coin.low_24h}
                     </td>
                     <td className="py-2 px-4">
                       {coin.market_data?.market_cap_change_percentage_24h ??
-                        "N/A"}
+                        coin.market_cap_change_percentage_24h}
                       %
                     </td>
                     <td className="py-2 px-4">
-                      {coin.market_data?.total_volume?.usd ?? "N/A"}
+                      {coin.market_data?.total_volume?.usd ??
+                        coin.total_volume}
                     </td>
                     <td className="py-2 px-4">
                       <button

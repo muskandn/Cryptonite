@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import WatchList from "../../../components/watchList";
 import Recentview from "../../../components/recentView";
 import Image from "next/image";
+import { RiDeleteBin6Line } from "react-icons/ri";
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -16,6 +17,7 @@ const navLinks = [
 ];
 
 const CoinList = () => {
+  const removeFromRecentlyViewed=useRecentlyViewedStore((state)=>state.removeFromRecentlyViewed)
   const recentlyViewed = useRecentlyViewedStore(
     (state) => state.recentlyViewed
   );
@@ -30,6 +32,9 @@ const CoinList = () => {
       return (marketCap / 1e9).toFixed(2) + "B";
     }
     return marketCap;
+  };
+  const handleRemoveFromWatchlist = (coin) => {
+    removeFromRecentlyViewed(coin.id);
   };
   return (
     <div className="flex">
@@ -63,6 +68,7 @@ const CoinList = () => {
                   "Today's Low",
                   "24h Change",
                   "Volume",
+                  " ",
                 ].map((header) => (
                   <th
                     key={header}
@@ -111,6 +117,17 @@ const CoinList = () => {
                       {coin.market_cap_change_percentage_24h || "N/A"}%
                     </td>
                     <td className="py-2 px-4">{coin.total_volume || "N/A"}</td>
+                    <td className="py-2 px-4">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent the row click event
+                          handleRemoveFromWatchlist(coin);
+                        }}
+                        className="mb-2"
+                      >
+                        <RiDeleteBin6Line size={24} color="rgb(239 68 68)" />
+                      </button>
+                    </td>
                   </tr>
                 ))}
             </tbody>

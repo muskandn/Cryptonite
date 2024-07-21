@@ -27,6 +27,15 @@ const TrendingMarket = () => {
       return marketCap;
     };
 
+      const formatTotalVolume = (volume) => {
+        if (volume >= 1e9) {
+          return "$" + (volume / 1e9).toFixed(2) + "B";
+        } else if (volume >= 1e6) {
+          return "$" + (volume / 1e6).toFixed(2) + "M";
+        }
+        return "$" + volume;
+      };
+
   return (
     <div className="p-6 border rounded-lg">
       <div className="flex justify-between items-center mb-4">
@@ -88,7 +97,9 @@ const TrendingMarket = () => {
                   <td className="py-2 px-4 text-green-600">
                     {coin.market_cap_change_percentage_24h}%
                   </td>
-                  <td className="py-2 px-4">{coin.total_volume}</td>
+                  <td className="py-2 px-4">
+                    {formatTotalVolume(coin.total_volume)}
+                  </td>
                   <td className="py-2 px-4">{coin.current_price}</td>
                   <td className="py-2 px-4 text-green-600">{coin.high_24h}</td>
                   <td className="py-2 px-4 text-red-600">{coin.low_24h}</td>
