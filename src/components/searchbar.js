@@ -88,10 +88,10 @@ const SearchBar = () => {
               key={index}
               className="px-4 py-2 hover:bg-gray-300 cursor-pointer"
               onMouseDown={() =>
-                handleSearch(typeof item === "string" ? item : item.name)
+                handleSearch(typeof item === "string" ? item : item.id)
               }
             >
-              {typeof item === "string" ? item : item.name}
+              {typeof item === "string" ? item : item.id}
             </div>
           ))}
         </div>

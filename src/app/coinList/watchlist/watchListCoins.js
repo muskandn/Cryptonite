@@ -108,10 +108,10 @@ const CoinList = () => {
                       {formatMarketCap(coin.market_data?.market_cap?.usd) ??
                         "N/A"}
                     </td>
-                    <td className="py-2 px-4 text-green-500">
+                    <td className="py-2 px-4 text-green-600">
                       {coin.market_data?.high_24h?.usd ?? "N/A"}
                     </td>
-                    <td className="py-2 px-4 text-red-500">
+                    <td className="py-2 px-4 text-red-600">
                       {coin.market_data?.low_24h?.usd ?? "N/A"}
                     </td>
                     <td className="py-2 px-4">

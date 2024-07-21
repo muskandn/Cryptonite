@@ -12,8 +12,9 @@ import useWatchlistStore from "../../../../store/watchlistStore";
 import { usePathname } from "next/navigation";
 import { CSS } from "@dnd-kit/utilities";
 import WatchList from "../../../components/watchList";
-import Recentview from "../../../components/recentView"
+import Recentview from "../../../components/recentView";
 import Image from "next/image";
+
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -32,7 +33,6 @@ const CoinList = () => {
   const [itemsPerPage, setItemsPerPage] = useState(20);
   const pathname = usePathname();
 
-  
   useEffect(() => {
     const calculateItemsToShow = () => {
       setDisplayedCoins(cryptocurrencies.slice(0, 20));
@@ -56,7 +56,6 @@ const CoinList = () => {
 
   const handleRowClick = (coin) => {
     addRecentlyViewed(coin);
-    window.location.href = `/coin_each/${coin.id}`;
   };
 
   const handleDragEnd = ({ active, over }) => {
@@ -68,7 +67,6 @@ const CoinList = () => {
     }
   };
 
-  
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <div className="flex">
@@ -165,34 +163,61 @@ const DraggableRow = ({ coin, handleRowClick }) => {
     }
     return "$" + volume;
   };
+
   return (
+    
     <tr
       ref={setNodeRef}
       style={style}
       {...listeners}
       {...attributes}
-      onClick={() => handleRowClick(coin)}
       className="hover:bg-gray-400 cursor-pointer"
-      draggable
+      onClick={() => handleRowClick(coin)}
     >
-      <td className="py-2 px-4 flex items-center">
-        <Image
-          src={coin.image}
-          alt={coin.name}
-          className="w-6 h-6 mr-2"
-          width={20}
-          height={20}
-        />
-        {coin.name}
+      <Link href={`/coin_each/${coin.id}`} passHref>
+        <td className="py-2 px-4 flex items-center">
+          <div className="flex">
+            <Image
+              src={coin.image}
+              alt={coin.name}
+              className="w-6 h-6 mr-2"
+              width={20}
+              height={20}
+            />
+            {coin.name}
+          </div>
+        </td>
+      </Link>
+      <td className="py-2 px-4">
+        <Link href={`/coin_each/${coin.id}`} passHref>
+          {formatMarketCap(coin.market_cap)}
+        </Link>
       </td>
-      <td className="py-2 px-4">{formatMarketCap(coin.market_cap)}</td>
-      <td className="py-2 px-4 text-green-500">
-        {coin.market_cap_change_percentage_24h.toFixed(2)}%
+      <td className="py-2 px-4 text-green-600">
+        <Link href={`/coin_each/${coin.id}`} passHref>
+          {coin.market_cap_change_percentage_24h.toFixed(2)}%
+        </Link>
       </td>
-      <td className="py-2 px-4">{formatTotalVolume(coin.total_volume)}</td>
-      <td className="py-2 px-4">{coin.current_price}</td>
-      <td className="py-2 px-4 text-green-500">{coin.high_24h.toFixed(2)}</td>
-      <td className="py-2 px-4 text-red-500">{coin.low_24h.toFixed(2)}</td>
+      <td className="py-2 px-4">
+        <Link href={`/coin_each/${coin.id}`} passHref>
+          {formatTotalVolume(coin.total_volume)}
+        </Link>
+      </td>
+      <td className="py-2 px-4">
+        <Link href={`/coin_each/${coin.id}`} passHref>
+          {coin.current_price}
+        </Link>
+      </td>
+      <td className="py-2 px-4 text-green-600">
+        <Link href={`/coin_each/${coin.id}`} passHref>
+          {coin.high_24h.toFixed(2)}
+        </Link>
+      </td>
+      <td className="py-2 px-4 text-red-600">
+        <Link href={`/coin_each/${coin.id}`} passHref>
+          {coin.low_24h.toFixed(2)}
+        </Link>
+      </td>
     </tr>
   );
 };

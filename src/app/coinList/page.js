@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 const navLinks = [
   { name: "All Coins", href: "/coinList/allcoins" },
   { name: "Watchlist", href: "/coinList/watchlist" },
@@ -11,11 +12,12 @@ const navLinks = [
 ];
 
 const CoinList = () => {
-    const pathname = usePathname();
+  const pathname = usePathname();
+
   return (
-    <div className="flex">
-      <div className="flex-1 container mx-auto p-4">
-        <div className="flex space-x-4 mb-4">
+    <div className="flex justify-center items-center ">
+      <div className="container mx-auto p-4">
+        <div className="flex justify-center space-x-4 mb-4">
           {navLinks.map((link) => {
             const isActive = pathname.startsWith(link.href);
             return (

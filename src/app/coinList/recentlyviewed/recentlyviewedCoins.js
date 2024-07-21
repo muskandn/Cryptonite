@@ -101,13 +101,13 @@ const CoinList = () => {
                     <td className="py-2 px-4">
                       {formatMarketCap(coin.market_cap) || "N/A"}
                     </td>
-                    <td className="py-2 px-4 text-green-500">
+                    <td className="py-2 px-4 text-green-600">
                       {coin.high_24h || "N/A"}
                     </td>
-                    <td className="py-2 px-4 text-red-500">
+                    <td className="py-2 px-4 text-red-600">
                       {coin.low_24h || "N/A"}
                     </td>
-                    <td className="py-2 px-4 text-green-500">
+                    <td className="py-2 px-4 text-green-600">
                       {coin.market_cap_change_percentage_24h || "N/A"}%
                     </td>
                     <td className="py-2 px-4">{coin.total_volume || "N/A"}</td>

@@ -14,7 +14,7 @@ const HomePage = () => {
               <div className="h-2/3 mb-4 shadow-md">
                 <GlobalGraph />
               </div>
-              <div className="h-1/3 border rounded-lg p-3 shadow-md">
+              <div className="h-1/3 border rounded-lg p-3 shadow-md text-gray-500">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Mauris fringilla sem sit amet sagittis ornare. Suspendisse

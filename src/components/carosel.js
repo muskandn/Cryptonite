@@ -116,7 +116,7 @@ const Carousel = () => {
               className="w-1/4 flex-shrink-0 flex flex-col items-center justify-center"
             >
               <Image src={coin.image} alt={coin.name} width={50} height={50} />
-              <p className="mt-5 text-xl text-bold text-gray-900 dark:text-white">
+              <p className="mt-5 text-xl text-bold">
                 {coin.name}{" "}
               </p>
               <p className="text-green-500">

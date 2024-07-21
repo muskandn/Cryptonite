@@ -70,7 +70,7 @@ const TrendingMarket = () => {
                 <tr
                   key={coin.id}
                   onClick={() => handleCoinClick(coin)}
-                  className="hover:bg-gray-100 cursor-pointer"
+                  className="hover:bg-gray-400 cursor-pointer"
                 >
                   <td className="py-2 px-4 flex items-center">
                     <Image
@@ -85,13 +85,13 @@ const TrendingMarket = () => {
                   <td className="py-2 px-4">
                     {formatMarketCap(coin.market_cap)}
                   </td>
-                  <td className="py-2 px-4 text-green-500">
+                  <td className="py-2 px-4 text-green-600">
                     {coin.market_cap_change_percentage_24h}%
                   </td>
                   <td className="py-2 px-4">{coin.total_volume}</td>
                   <td className="py-2 px-4">{coin.current_price}</td>
-                  <td className="py-2 px-4 text-green-500">{coin.high_24h}</td>
-                  <td className="py-2 px-4 text-red-500">{coin.low_24h}</td>
+                  <td className="py-2 px-4 text-green-600">{coin.high_24h}</td>
+                  <td className="py-2 px-4 text-red-600">{coin.low_24h}</td>
                 </tr>
               ))}
             </tbody>

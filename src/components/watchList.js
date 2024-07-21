@@ -11,7 +11,7 @@ const WatchList = () => {
     id: "watchlist",
   });
   const style = {
-    backgroundColor: isOver ? "lightgreen" : "",
+    border: isOver ? "2px dashed rgb(59 130 246)" : "",
   };
   const formatMarketCap = (marketCap) => {
     if (marketCap >= 1e9) {
