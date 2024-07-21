@@ -58,7 +58,7 @@ const SearchBar = () => {
   const handleFocus = () => {
     setIsFocused(true);
     if (query === "") {
-      setSuggestions(recentSearches);
+      setSuggestions(recentSearches.slice(0,5));
     }
   };
 
