@@ -8,18 +8,18 @@ Cryptonite is a responsive web application for viewing real-time cryptocurrency 
 
 ## 🛠️ Features
 
-    - Real-Time Data: Uses a cryptocurrency API to fetch live prices and historical data.
-    - Draggable Watchlist: Easily drag and drop coins into a watchlist for quick access.
-    - Search with Suggestions: Provides instant suggestions while searching for specific coins.
-    - Responsive Design: Optimized for multiple screen sizes for a seamless user experience.
-    - Dynamic Theme Switching: Toggle between Light and Dark modes.
-
+- Real-Time Data: Uses a cryptocurrency API to fetch live prices and historical data.
+- Draggable Watchlist: Easily drag and drop coins into a watchlist for quick access.
+- Search with Suggestions: Provides instant suggestions while searching for specific coins.
+- Responsive Design: Optimized for multiple screen sizes for a seamless user experience.
+- Dynamic Theme Switching: Toggle between Light and Dark modes.
+  
 ## 💻 Technologies Used
 
-    - React: Component-based UI development.
-    - Redux Toolkit: State management.
-    - CoinGecko API: Cryptocurrency data provider.
-    - Vercel: Hosting platform.
+- React: Component-based UI development.
+- Redux Toolkit: State management.
+- CoinGecko API: Cryptocurrency data provider.
+- Vercel: Hosting platform.
 
 ## 📝 Getting Started
 
