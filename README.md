@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Cryptonite - Crypto Web App</h1> 
 
-## Getting Started
+Cryptonite is a responsive web application for viewing real-time cryptocurrency data, adding coins to a watchlist, and exploring market trends. This project was built as part of a coding assignment for Groww, showcasing frontend development skills with a focus on interactive features, custom design, and efficient data handling.
 
-First, run the development server:
+## 🌐 Deployed URL
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**[Cryptonite on Vercel](https://cryptonite-ebon.vercel.app/)**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+    - Real-Time Data: Uses a cryptocurrency API to fetch live prices and historical data.
+    - Draggable Watchlist: Easily drag and drop coins into a watchlist for quick access.
+    - Search with Suggestions: Provides instant suggestions while searching for specific coins.
+    - Responsive Design: Optimized for multiple screen sizes for a seamless user experience.
+    - Dynamic Theme Switching: Toggle between Light and Dark modes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 💻 Technologies Used
 
-## Learn More
+    - React: Component-based UI development.
+    - Redux Toolkit: State management.
+    - CoinGecko API: Cryptocurrency data provider.
+    - Vercel: Hosting platform.
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    git clone https://github.com/muskandn/Cryptonite.git
 
-## Deploy on Vercel
+Install dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    npm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start the development server:
+
+    npm start
+
+## ⚙️ Additional Notes
+
+    Caching: API responses are cached for efficient data retrieval.
+    Deployment: Hosted on Vercel for quick and easy access.
+    Interactive Design: Emphasis on usability and animations.
+
