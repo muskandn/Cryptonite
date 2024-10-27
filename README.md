@@ -7,7 +7,6 @@ Cryptonite is a responsive web application for viewing real-time cryptocurrency 
 **[Cryptonite on Vercel](https://cryptonite-ebon.vercel.app/)**
 
 ## 🛠️ Features
-
 - Real-Time Data: Uses a cryptocurrency API to fetch live prices and historical data.
 - Draggable Watchlist: Easily drag and drop coins into a watchlist for quick access.
 - Search with Suggestions: Provides instant suggestions while searching for specific coins.
